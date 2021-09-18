@@ -1,0 +1,7 @@
+export PROJECT_WORKSPACE
+PROJECT_WORKSPACE=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
+
+export LRA_PATH=$PROJECT_WORKSPACE/third_part_libraries/long-range-arena/
+
+export PYTHONPATH
+PYTHONPATH=$PYTHONPATH:$PROJECT_WORKSPACE:$LRA_PATH
