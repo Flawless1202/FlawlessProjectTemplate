@@ -7,7 +7,7 @@ from torch import optim
 from torch.optim import Optimizer
 from torch.utils.data import DataLoader
 
-from ..models import build_transformer
+from ..models import build_model
 from ..datasets import build_dataset
 from ..metrics import build_metrics
 from ..utils.config import ConfigDict
@@ -28,7 +28,7 @@ class LightningModel(pl.LightningModule):
     ):
         super().__init__()
 
-        self.model = build_transformer(model_cfg)
+        self.model = build_model(model_cfg)
         self.data_cfg = data_cfg
         self.train_dataset = build_dataset(data_cfg.train)
         self.val_dataset = build_dataset(data_cfg.val)

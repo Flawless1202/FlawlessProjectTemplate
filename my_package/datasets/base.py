@@ -88,7 +88,7 @@ class BaseDataset(Dataset):
 
     def __getitem__(self, idx: int) -> Dict[str, Any]:
         """Get an item and patch statistic information to the item."""
-        data = self._data[idx]
+        data = self._data[idx] if self.in_memory else torch.load(self._data[idx])
 
         return self.transforms(data) if self.transforms is not None else data
 
